@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh "sudo systemctl start docker && \
+                sh "sudo service docker restart && \
                 export DB_PASSWORD=root && \
                 cd chaperootodo_client \
                 && docker-compose up -d"
