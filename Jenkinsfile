@@ -13,10 +13,8 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh "sudo service docker restart && \
-                export DB_PASSWORD=root && \
-                cd chaperootodo_client \
-                && docker-compose up -d"
+                sh "source /home/jenkins/.profile \
+                && sudo docker-compose up -d"
             }
         }
     }
