@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh "source /home/jenkins/.profile \
+                sh ". /home/jenkins/.profile \
                 && sudo docker-compose up -d"
             }
         }
