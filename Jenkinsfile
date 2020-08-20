@@ -13,7 +13,8 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh "export DB_PASSWORD && docker-compose up -d"
+                sh "export DB_PASSWORD && cd chaperootodo_client \
+                && docker-compose up -d"
             }
         }
     }
