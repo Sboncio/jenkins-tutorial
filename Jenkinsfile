@@ -15,6 +15,8 @@ pipeline{
             steps{
                 sh ". /home/jenkins/.profile &&\
                 cd chaperootodo_client && \
+                export DB_PASSWORD=$DB_PASSWORD
+                sudo docker-compose down && \
                 sudo docker-compose up -d"
             }
         }
