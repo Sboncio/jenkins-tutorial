@@ -14,7 +14,8 @@ pipeline{
         stage('Deploy'){
             steps{
                 sh " cd chaperootodo_client &&\
-                . /home/jenkins/.profile&& \
+                . /home/jenkins/.profile && \
+                echo '$DB_PASSWORD'
                 sudo docker-compose up -d"
             }
         }
