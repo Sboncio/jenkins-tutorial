@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh "docker-compose up -d"
+                sh "export DB_PASSWORD && docker-compose up -d"
             }
         }
     }
