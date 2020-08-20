@@ -1,14 +1,19 @@
 pipeline{
     agent any
     stages{
-        stage('Make directory'){
+        stage('Clone directory'){
             steps{
-                sh "mkdir ~/jenkins-tutorial-test"
+                sh "./scripts/clone.sh"
             }
         }
-        stage('Make files'){
+        stage('Install Docker'){
             steps{
-                sh "touch ~/jenkins-tutorial-test/file1 ~/jenkins-tutorial-test/file2"
+                sh "./scripts/install_docker.sh"
+            }
+        }
+        stage('Deploy'){
+            steps{
+                sh "sudo docker-compose up -d"
             }
         }
     }
